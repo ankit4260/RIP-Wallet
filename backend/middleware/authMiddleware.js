@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 function authMiddleware(req,res,next){
     try{
     const token=req.cookies.token;
-    if(!token)return res.status(401).json({msg:"unauthorized"});
+    if(!token)return  res.redirect("/");
     const jwtData=jwt.verify(token,process.env.JWT_SECRET)
     if(jwtData.userId){
         req.user=jwtData ;
