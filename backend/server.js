@@ -37,4 +37,4 @@ app.get("/manage",authMiddleware,(req,res)=>{
 app.use("/auth",authRoutes);
 app.use("/expense",expenseRoutes);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
