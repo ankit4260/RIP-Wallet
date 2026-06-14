@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="manage.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-logo-icon">₩</span>
+                <div class="brand-name"><span class="rip">RIP</span>WALLET</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-main">MAIN</div>
+                <a href="/dashboard" class="redirect " > <i class="fa-brands fa-trello"></i>  <span >Dashboard</span></a>
+                <a href="/manage" class="redirect current" > <i class="fa-solid fa-bars-staggered">  </i><span>Manage</span></a>
+                <a href="" class="coming-soon-el redirect" data-msg="analyze coming soon!"> <i class="fa-solid fa-chart-line"></i><span>Analyze</span></a>
+                <div class="nav-account">Account</div>
+                <a href="" class="coming-soon-el redirect" data-msg="prfile coming soon!"> <i class="fa-regular fa-user"></i><span>Profile</span></a>
+                <a href="/auth/signOut" class="coming-soon-el redirect" data-msg="setting coming soon!"> <i class="fa-solid fa-gear"></i><span >Setting</span></a>
+            </nav>
+            <div class="foot">
+                <a href="/auth/signOut"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Sign out</span></a>
+            </div>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Manage <span>Transections.</span></h1>
+                    <p>All your money moves . <span id="tophead-record">401</span> records . <span id="tophead-mY">jan 2026</span></p>
+                </div>
+                <div class="topbar-right">
+                    <div class="search ">
+                        <i class="fa-brands fa-sistrix"></i>
+                        <input type="text" class="searchInput coming-soon-el" data-msg="input coming soon!"  placeholder="filter by name, category...">
+                    </div>
+                    <button class="addBtn"> <i class="fa-solid fa-plus"></i> Add Transection</button>
+                </div>
+            </header>
+            <section class="balance">
+                <div class="balancecard">
+                    <div class="title">TOTAL IN</div>
+                    <div class="amount card-totalIn" style="color: #d4ff3a">₹0</div>
+                    <div class="foot"><span id="card-transIn">0</span> transections</div>
+                </div>
+                <div class="balancecard">
+                    <div class="title">TOTAL OUT</div>
+                    <div class="amount card-totalOut" style="color: #ff6b8a">₹0</div>
+                    <div class="foot"><span id="card-transOut" >0</span> transections </div>
+                </div>
+                <div class="balancecard">
+                    <div class="title">NET</div>
+                    <div class="amount card-totalNet" style="color: #d4ff3a">₹0</div>
+                    <!-- <div class="foot">↑ savings rate <span id="card-transRate">43%</span></div> -->
+                </div>
+                <div class="balancecard">
+                    <div class="title">AVG / DAY</div>
+                    <div class="amount card-totalAvg" style="color: #f5f5f7">₹0</div>
+                    <div class="foot">last <span>30</span> days</div>
+                </div>
+            </section>
+            <section class="filter">
+                <div class="filter-left">
+                    <button  class="filterCard">All</button>
+                    <button class="filterCard">Income</button>
+                    <button class="filterCard">Expense</button>
+                    <button class="filterCard">Food</button>
+                    <button class="filterCard">Shopping</button>
+                    <button class="filterCard">Transport</button>
+                    <button class="filterCard">Bills</button>
+                </div>
+                <div class="filter-right">
+                    <button class="filter-rightCard coming-soon-el" data-msg="This Month comming soon!"><i class="fa-solid fa-calendar " ></i> This Month</button>
+                    <button class="filter-rightCard coming-soon-el" data-msg="Export comming soon!"><i class="fa-solid fa-download"></i> Export</button>
+                </div>
+            </section>
+            <section class="transections">
+                <div class="table-head">
+                    <div class="table-head-left">
+                    <div class="tittle">ALL TRANSECTIONS</div>
+                    <h3 class="table-head-left-month"></h3>
+                    </div>
+                    <div class="table-head-right">
+                        <button class="head-right-btn coming-soon-el" data-msg="Newest comming soon!">Newest</button>
+                        <button class="head-right-btn coming-soon-el" data-msg="Largest comming soon!">Largest</button>
+                        <button class="head-right-btn coming-soon-el" data-msg="Category comming soon!">Category</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>CATEGORY</th>
+                        <th>NOTE</th>
+                        <th>TYPE</th>
+                        <th>DATE</th>
+                        <th>AMOUNT</th>
+                        <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="no-trans no-trans-hide">
+                        <td colspan="6">No Transections Yet! </td></tr>
+
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- popup-form -->
+     <div class="overlay overlay-hide">
+    <div class="form-container">
+        <form action="" method="">
+        <div class="form-header">
+            <h2 style="margin: 0;" class="form-h2">Add Transection</h2>
+            <button class="x-btn">X</button>
+        </div>
+        <div class="type form-add">
+            <label for="type">Type</label>
+            <select name="type" id="type">
+                <option value="Expense">Expense</option>
+                <option value="Income">Income</option>
+            </select>
+        </div>
+        <div class="category form-add">
+            <label for="category">Category</label>
+            <select name="category"  class="expense-option  ">
+                <option value="Food">Food</option>
+                <option value="Transport">Transport</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Bills">Bills</option>
+                <option value="Education">Education</option>
+                <option value="other">other</option>
+            </select>
+            <select name="category"  class="income-option income-option-hide ">
+                <option value="Salary">Salary</option>
+                <option value="Freelance">Freelance</option>
+                <option value="Investment">Investment</option>
+                <option value="Gift">Gift</option>
+                <option value="Bonus">Bonus</option>
+                <option value="other">other</option>
+            </select>
+        </div>
+        <div class="note form-add">
+            <label for="note">Note</label>
+            <input type="text" id="note" required>
+        </div>
+        <div class="amount form-add">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" required>
+        </div>
+        <div class="date form-add">
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+        </div>
+        <div class="form-btn ">
+        <button class="cancel-btn">Cancel</button>
+        <button class="save-btn">Save Transection</button>
+        </div>
+        </form>
+    </div>
+    </div>
+    
+     <!--  confirm delete popup -->
+      <div class="confirmContainer confirmContainer-hide">
+    <div class="confirmDelete">
+        <form action="">
+            <h2>Confirm delete</h2>
+            <div class="btnDiv">
+            <button class="confirm-cnacelBtn  confirm-btn">Cancel</button>
+            <button class="confirm-deleteBtn confirm-btn">Confirm</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    <!-- coming soon -->
+    <div class="coming-soon coming-soon-hide">
+    <i class="fa-solid fa-rocket"></i>
+    <span class="coming-soon-msg"></span>
+    </div>
+    <script src="manage.js"></script>
+</body>
+</html>

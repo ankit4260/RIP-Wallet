@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-logo-icon">₩</span>
+                <div class="brand-name"><span class="rip">RIP</span>WALLET</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-main">MAIN</div>
+                <a href="/dashboard" class="redirect current" > <i class="fa-brands fa-trello"></i>  <span >Dashboard</span></a>
+                <a href="/manage" class="redirect " > <i class="fa-solid fa-bars-staggered">  </i><span>Manage</span></a>
+                <a href="" class="coming-soon-el redirect" data-msg="analyze coming soon!"> <i class="fa-solid fa-chart-line"></i><span>Analyze</span></a>
+                <div class="nav-account">Account</div>
+                <a href="" class="coming-soon-el redirect" data-msg="prfile coming soon!"> <i class="fa-regular fa-user"></i><span>Profile</span></a>
+                <a href="" class="coming-soon-el redirect" data-msg="setting coming soon!"> <i class="fa-solid fa-gear"></i><span >Setting</span></a>
+            </nav>
+            <div class="foot">
+                <a href="/auth/signOut" ><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Sign out</span></a>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 class="topbar-h1"><span></span></h1>
+                    <p><span id="tophead-record">..</span> <span id="tophead-mY"> Jan 22, 2026</span></p>
+                </div>
+                <div class="topbar-right">
+                    <div class="search ">
+                        <i class="fa-brands fa-sistrix"></i>
+                        <input type="text" class="searchInput coming-soon-el" data-msg="input coming soon!"  placeholder="filter by name, category...">
+                    </div>
+                    <button class="addBtn"> <i class="fa-solid fa-plus"></i> Add Transection</button>
+                </div>
+            </header>
+            <section class="balance">
+                <div class="balancecard">
+                    <div class="title">TOTAL BALANCE</div>
+                    <div class="amount card-totalBal" style="color: #f5f5f7">₹0</div>
+                    <div class="foot"><span id="card-transIn"></span></div>
+                </div>
+                <div class="balancecard">
+                    <div class="title">TOTAL INCOME  .  <span>Jan 2026</span></div>
+                    <div class="amount card-totalIn" style="color: #d4ff3a">₹0</div>
+                    <div class="foot"> <span id="card-transIn"></span> </div>
+                </div>
+                <div class="balancecard">
+                    <div class="title">TOTAL EXPENSE  .  <span>Jan 2026</span></div>
+                    <div class="amount card-totalOut" style="color: #ff6b8a">₹0</div>
+                    <div class="foot"><span id="card-transOut" ></span>  </div>
+                </div>
+                
+            </section>
+            <section class="chart-sect">
+                <div class="chart-sect-left">
+                    <div class="chart-left-head">
+                        <div class="chart-left-head-left"><p>CASH FLOW</p>
+                        <H2>Last 30 days</H2>
+                        <div class="chart-tittle">
+                            <i class="fa-solid fa-circle chart-tittle-income dot"></i> 
+                            <span> Income</span>
+                            <i class="fa-solid fa-circle chart-tittle-expense dot"></i>
+                            <span > Expense</span>
+                        </div>
+                    </div>
+                        <div class="chart-left-head-right">
+                            <button class="filter-btn">7D</button>
+                            <button class="filter-btn chartFilter">30D</button>
+                            <button class="filter-btn">90D</button>
+                            <button class="filter-btn">1Y</button>
+                        </div>
+                    </div>
+                    <canvas class="chart-left-chart"></canvas>
+                </div>
+                <div class="chart-sect-right hover">
+                    <div><p>SPENDING</p>
+                        <h2>By Category</h2>
+                    </div>
+                    <canvas class="chart-right-chart" height="300"></canvas>
+                    <div class="right-chart-foot">
+                        <button class="right-chart-foot-income  incomeBtn">Income</button>
+                        <button class="right-chart-foot-expense donutH  expenseBtn">Expense</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+<!-- coming soon -->
+    <div class="coming-soon coming-soon-hide">
+    <i class="fa-solid fa-rocket"></i>
+    <span class="coming-soon-msg"></span>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
