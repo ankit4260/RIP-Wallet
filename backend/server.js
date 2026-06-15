@@ -12,6 +12,9 @@ dns.setServers(['8.8.8.8', '1.1.1.1'])
 import connectDB from "./config/db.js";
 connectDB();
 
+app.use("/auth",authRoutes);
+app.use("/expense",expenseRoutes);
+
 import authMiddleware from "./middleware/authMiddleware.js";
 import authRoutes from "./routes/authRoutes.js";
 import expenseRoutes from "./routes/expenseRoutes.js";
@@ -33,8 +36,5 @@ app.get("/manage",authMiddleware,(req,res)=>{
 })
 
 
-
-app.use("/auth",authRoutes);
-app.use("/expense",expenseRoutes);
 
 app.listen(process.env.PORT || 3000);
