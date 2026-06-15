@@ -90,7 +90,7 @@ async function render(){
     document.querySelector("#tophead-mY").innerHTML=mY();
 
     try{
-        const jsonResp=await fetch("http://localhost:3000/expense/getData",{
+        const jsonResp=await fetch("/expense/getData",{
             method:"GET",
             credentials:"include",
             headers:{
@@ -179,7 +179,7 @@ addTransectionBtn.addEventListener("click",()=>{
             const amount=document.querySelector("#amount").value;
             const date=document.querySelector("#date").value;
 
-            const addResponse=await fetch("http://localhost:3000/expense/add",{
+            const addResponse=await fetch("/expense/add",{
                 method:"POST",
                 credentials:"include",
                 headers:{
@@ -252,7 +252,7 @@ document.querySelector("tbody").addEventListener("click",async(e)=>{
                 const amount=document.querySelector("#amount").value;
                 const date=document.querySelector("#date").value;
 
-                const editResponse=await fetch("http://localhost:3000/expense/edit",{
+                const editResponse=await fetch("/expense/edit",{
                     method:"PUT",
                     credentials:"include",
                     headers:{
@@ -285,7 +285,7 @@ document.querySelector("tbody").addEventListener("click",async(e)=>{
             // ---------confirm-deleteBtn----------
             if(e.target.classList.contains("confirm-deleteBtn")){
                 e.preventDefault();
-                const confirmResponse=await fetch("http://localhost:3000/expense/delete",{
+                const confirmResponse=await fetch("/expense/delete",{
                     method:"DELETE",
                     credentials:"include",
                     headers:{
