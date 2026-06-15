@@ -460,12 +460,14 @@ main {
 .addBtn {
     width: 100%;
 }
-}
 
-  .chart-left-head-right {
+.chart-left-head-right {
         display: none;
     }
 
     .balancecard {
         width: auto;
     }
+}
+
+  
