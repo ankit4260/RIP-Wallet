@@ -17,7 +17,7 @@ button {
 .container {
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     display: flex;
 }
 
@@ -391,3 +391,81 @@ main {
     background: rgba(255, 255, 255, 0.1);
 }
 /*   --------responsive */
+
+@media (max-width: 768px) {
+    .container {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        z-index: 1000;
+        padding: 0;
+        border-right: none;
+        border-top: 1px solid rgba(255,255,255,.06);
+    }
+
+    .brand,
+    .nav-main,
+    .nav-account,
+    .foot {
+        display: none;
+    }
+
+    .nav {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        margin: 0;
+    }
+
+    .nav a {
+        margin: 0;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav a span {
+        margin-left: 0;
+        font-size: 12px;
+    }
+
+    main {
+        margin: 0;
+        height: auto;
+        padding: 20px;
+        padding-bottom: 90px; /* space for bottom nav */
+    }
+
+    .balance,
+.chart-sect,
+.topbar,
+.topbar-right {
+    flex-direction: column;
+}
+
+.chart-sect-left,
+.chart-sect-right {
+    width: auto;
+}
+
+.search,
+.addBtn {
+    width: 100%;
+}
+}
+
+  .chart-left-head-right {
+        display: none;
+    }
+
+    .balancecard {
+        width: auto;
+    }

@@ -1,126 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
+    <title>RIPWallet</title>
     <link rel="stylesheet" href="signup.css">
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="form-box login">
-        <form action="" method="">
-            <h1>Login</h1>
-            <div class="input-box">
-                <input type="text" placeholder="Username" id="log-username" required>
-                <i class="fa-solid fa-user"></i>
+    <div class="auth-container">
+
+
+        <div class="left-side">
+
+            <div class="logo">
+                <div class="logo-icon">₩</div>
+                <h2><span>RIP</span>Wallet</h2>
             </div>
-            <div class="input-box">
-                <input type="password" placeholder="Password" id="log-password" required>
-                <i class="fa-solid fa-lock"></i>
+
+            <div class="hero-content">
+
+                <p class="tagline">PERSONAL FINANCE TRACKER</p>
+
+                <h1>
+                    Take Control Of
+                    Your <span>Expenses</span>
+                </h1>
+
+                <p class="description">
+                    Monitor spending, track income and visualize
+                    your financial growth with RIPWallet.
+                </p>
+
+                <div class="stats">
+
+                    <div class="feature">
+                        <h3>✓</h3>
+                        <p>Income Tracking</p>
+                    </div>
+
+                    <div class="feature">
+                        <h3>✓</h3>
+                        <p>Expense Management</p>
+                    </div>
+
+                    <div class="feature">
+                        <h3>✓</h3>
+                        <p>Financial Reports</p>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="forget-pass">
-                <a href="">Forget Passward</a>
-            </div>
-            <button class="btn  submitLogin">Login</button>
-        </form>
+
         </div>
 
-        <div class="form-box register">
-        <form action="" method="">
-            <h1>Register</h1>
-            <div class="input-box">
-                <input type="text" placeholder="Username" id="reg-username"  required>
-                <i class="fa-solid fa-user"></i>
+
+        <div class="right-side">
+
+
+            <div class="form-box login active-form">
+
+                <form>
+
+                    <small>WELCOME BACK</small>
+
+                    <h1>
+                        Sign in to your
+                        <span>wallet</span>
+                    </h1>
+
+                    <div class="input-box">
+                        <input type="text" id="log-username" placeholder="Username" required>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" id="log-password" placeholder="Password" required>
+                    </div>
+
+                    <button class="btn submitLogin">
+                        Continue To Dashboard
+                    </button>
+
+                    <p class="switch">
+                        New to RIPWallet?
+                        <a href="#" class="register-btn">
+                            Create account
+                        </a>
+                    </p>
+
+                </form>
+
             </div>
-            <div class="input-box">
-                <input type="email" placeholder="Email"  id="reg-email" required>
-                <i class="fa-solid fa-envelope"></i>
+
+            <!-- REGISTER -->
+
+            <div class="form-box register">
+
+                <form>
+
+                    <small>CREATE ACCOUNT</small>
+
+                    <h1>
+                        Create your
+                        <span>wallet</span>
+                    </h1>
+
+                    <div class="input-box">
+                        <input type="text" id="reg-username" placeholder="Username" required>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" id="reg-email" placeholder="Email" required>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" id="reg-password" placeholder="Password" required>
+                    </div>
+
+                    <button class="btn submitRegister">
+                        Create Account
+                    </button>
+
+                    <p class="switch">
+                        Already have an account?
+                        <a href="#" class="login-btn">
+                            Sign In
+                        </a>
+                    </p>
+
+                </form>
+
             </div>
-            <div class="input-box">
-                <input type="password" placeholder="Password" id="reg-password"  required>
-                <i class="fa-solid fa-lock"></i>
-            </div>
-            <button class="btn submitRegister">Register</button>
-        </form>
+
         </div>
-        <div class="toggle-box">
-            <div class="toggle-pannel toggle-left">
-                <h1>Hello, Welcome!</h1>
-                <p>Don't have an account?</p>
-                <button class="btn register-btn">Register</button>
-            </div>
-            <div class="toggle-pannel toggle-right">
-                <h1>Welcome Back!</h1>
-                <p>Already have an account?</p>
-                <button class="btn login-btn">Login</button>
-            </div>
-        </div>
+
     </div>
-<script>
-    const container=document.querySelector(".container");
-    const regBtn=document.querySelector(".register-btn");
-    const logBtn=document.querySelector(".login-btn");
-    regBtn.addEventListener('click',(e)=>{
-        e.preventDefault()
-        container.classList.add('active');
-    })
-    logBtn.addEventListener('click',(e)=>{
-        e.preventDefault()
-        container.classList.remove('active');
-    })
-
-    document.querySelector(".submitRegister").addEventListener("click",async(e)=>{
-        e.preventDefault()
-        const username=document.querySelector("#reg-username").value;
-        const email=document.querySelector("#reg-email").value;
-        const password=document.querySelector("#reg-password").value;
-
-        const registerResponse=await fetch("/auth/register",{
-            method:"post",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                username,
-                email,
-                password
-            })
-        })
-        const jRegisterResponse=await registerResponse.json();
-        if(jRegisterResponse.msg=="success"){
-            container.classList.remove('active');
-            return;
-        }
-    })
-
-    document.querySelector(".submitLogin").addEventListener("click",async(e)=>{
-        e.preventDefault()
-        const username=document.querySelector("#log-username").value;
-        const password=document.querySelector("#log-password").value;
-
-        const registerResponse=await fetch("/auth/login",{
-            method:"post",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                username,
-                password
-            })
-        })
-        const jRegisterResponse=await registerResponse.json();
-        if(jRegisterResponse.msg=="success"){
-            localStorage.setItem("token",jRegisterResponse.token);
-            window.location.href="/dashboard";
-            return;
-        }
-    })
+    <script>
 
 
-</script>
+
+        const loginBox = document.querySelector(".login");
+        const registerBox = document.querySelector(".register");
+
+        document.querySelector(".register-btn")
+            .addEventListener("click", (e) => {
+                e.preventDefault();
+
+                loginBox.classList.remove("active-form");
+                registerBox.classList.add("active-form");
+            });
+
+        document.querySelector(".login-btn")
+            .addEventListener("click", (e) => {
+                e.preventDefault();
+
+                registerBox.classList.remove("active-form");
+                loginBox.classList.add("active-form");
+            });
+
+
+
+        document.querySelector(".submitRegister")
+            .addEventListener("click", async (e) => {
+
+                e.preventDefault();
+
+                const username =
+                    document.querySelector("#reg-username").value.trim();
+
+                const email =
+                    document.querySelector("#reg-email").value.trim();
+
+                const password =
+                    document.querySelector("#reg-password").value;
+
+                if (!username || !email || !password) {
+                    alert("Please fill all fields");
+                    return;
+                }
+
+                try {
+
+                    const response = await fetch("/auth/register", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            username,
+                            email,
+                            password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.msg === "success") {
+
+                        alert("Registration Successful");
+
+                        registerBox.classList.remove("active-form");
+                        loginBox.classList.add("active-form");
+
+                    } else {
+
+                        alert(data.msg || "Registration Failed");
+
+                    }
+
+                } catch (err) {
+
+                    console.error(err);
+                    alert("Server Error");
+
+                }
+
+            });
+
+
+
+
+        document.querySelector(".submitLogin")
+            .addEventListener("click", async (e) => {
+
+                e.preventDefault();
+
+                const username =
+                    document.querySelector("#log-username").value.trim();
+
+                const password =
+                    document.querySelector("#log-password").value;
+
+                if (!username || !password) {
+                    alert("Please fill all fields");
+                    return;
+                }
+
+                try {
+
+                    const response = await fetch("/auth/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            username,
+                            password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.msg === "success") {
+
+                        localStorage.setItem("token", data.token);
+
+                        window.location.href = "/dashboard";
+
+                    } else {
+
+                        alert(data.msg || "Invalid Credentials");
+
+                    }
+
+                } catch (err) {
+
+                    console.error(err);
+                    alert("Server Error");
+
+                }
+
+            });
+
+    </script>
 </body>
+
 </html>
