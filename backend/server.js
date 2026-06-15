@@ -1,25 +1,28 @@
-import dotenv from "dotenv";
-dotenv.config();
 import express from "express";
-const app=express();
-app.use(express.json());
-import cookieParser from "cookie-parser"
-app.use(cookieParser());
-
-import dns from 'node:dns'
-dns.setServers(['8.8.8.8', '1.1.1.1'])
-
-import connectDB from "./config/db.js";
-connectDB();
-
-app.use("/auth",authRoutes);
-app.use("/expense",expenseRoutes);
-
+import dotenv from "dotenv";
 import authMiddleware from "./middleware/authMiddleware.js";
 import authRoutes from "./routes/authRoutes.js";
 import expenseRoutes from "./routes/expenseRoutes.js";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import cookieParser from "cookie-parser";
+import dns from 'node:dns';
+import connectDB from "./config/db.js";
+dotenv.config();
+const app=express();
+app.use(express.json());
+app.use(cookieParser());
+
+
+dns.setServers(['8.8.8.8', '1.1.1.1'])
+
+
+connectDB();
+
+app.use("/auth",authRoutes);
+app.use("/expense",expenseRoutes);
+
+
 const __dirname=path.dirname(fileURLToPath(import.meta.url))
 app.use(express.static(path.join(__dirname,"../frontend")));
 
